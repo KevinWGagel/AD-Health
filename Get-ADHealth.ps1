@@ -94,7 +94,7 @@ Add-Content -Path $LogFile -Value "Active Directory Health Check" -Encoding UTF8
 $GetForest = [system.directoryservices.activedirectory.forest]::GetCurrentForest()
 $DCServers = $GetForest.domains | ForEach-Object { $_.DomainControllers } | ForEach-Object { $_.Name }
 
-$Timeout = "60"
+$Timeout = "90"
 
 ForEach ($DC in $DCServers) {
     $Identity = $DC
